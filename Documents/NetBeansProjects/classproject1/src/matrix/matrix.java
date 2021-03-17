@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package classproject1;
+package matrix;
 
 /**
  *
- * @author Medhavi
+ * @author Manoj Rasika
  */
-public class Classproject1 {
+public class matrix {
 
     /**
      * @param args the command line arguments
