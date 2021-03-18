@@ -7,7 +7,7 @@ package matrix;
 
 /**
  *
- * @author Medhavi
+ * @author Manoj Rasika
  */
 public class Matrix {
 
