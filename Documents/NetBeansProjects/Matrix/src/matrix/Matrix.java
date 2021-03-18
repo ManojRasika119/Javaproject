@@ -27,8 +27,8 @@ public class Matrix {
         
    
     
-    public static matrix random(int M, int N) {
-        matrix A = new matrix(M, N);
+    public static matrix  random(int M, int N) {
+        matrix A = new  matrix(M, N);
         for (int  i < M;);
             for (int  j < N;);
         int[][] dataA;
