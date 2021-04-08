@@ -22,6 +22,24 @@ public class Matrix {
         this.name = name;
         elements = new int[numberOfRows][numberOfColumns];
     }
+    // methods
+    
+    //creating random elements for A and B Matrixs
+    int getRandom(int a, int b) {
+        
+        Random rand = new Random();
+        return a + rand.nextInt(b-a+1);
+    }
+    
+    void getRandElements(int a, int b){
+        for (int i = 0; i < elements.length; i++) {
+            for (int j = 0; j < elements[i].length; j++) {
+            elements[i][j]= Arrays.toString(getRandom.nextInt (a,b));
+                    
+        }
+        }
+    }
+        
 
     //methods
     @Override
@@ -33,18 +51,15 @@ public class Matrix {
         for (int i = 0; i < elements.length; i++) {
             for (int j = 0; j < elements[i].length; j++) {
                 text += String.format("%6d", elements[i][j]);   
-                elements[i][j]=int getRandom(a,b);
+                
             }
             text += "\n";
         }
         return text;
-    }
+    }   
     
-    private int getRandom(int a , int b) {
-        //creating random elements for A and B Matrixs
-        Random rand = new Random();
-        return rand.nextInt();
-       
+    Public int[][] compareMatrixs(Matrix otherMatrix){
+        
 
         
     }

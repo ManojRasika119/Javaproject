@@ -20,7 +20,7 @@ public class MatrixMain {
         Matrix matrixB = new Matrix("Matrix B", 3, 2);
         System.out.println(matrixB);
         
-         System.out.println(matrixA.toString());
+         System.out.println(matrixA.toString();
     }
     
     
