@@ -26,28 +26,27 @@ public class Matrix {
     //methods
     @Override
     public String toString() {
+        
         String text = "";
         
         text += name + "\n";
         for (int i = 0; i < elements.length; i++) {
             for (int j = 0; j < elements[i].length; j++) {
-                text += String.format("%6d", elements[i][j]);                
+                text += String.format("%6d", elements[i][j]);   
+                elements[i][j]=int getRandom(a,b);
             }
             text += "\n";
         }
         return text;
     }
     
-    private void random() {
-        //creating random dimentions of A and B Matrixs
-        Random randA = new Random();
-        int rowM = randA.nextInt();
-        int columnN = randA.nextInt();
+    private int getRandom(int a , int b) {
+        //creating random elements for A and B Matrixs
+        Random rand = new Random();
+        return rand.nextInt();
+       
 
-        Random randB = new Random();
-        int rowO = randB.nextInt();
-        int columnP = randB.nextInt();
-
+        
     }
 
 //    private void Array(int[][] twoDArrayA) {
