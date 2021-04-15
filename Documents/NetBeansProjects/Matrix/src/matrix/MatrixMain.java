@@ -11,17 +11,16 @@ package matrix;
  */
 public class MatrixMain {
 
-   public static void main(String args[]) {
-      
-   }
+    public static void main(String args[]) {
+
         Matrix matrixA = new Matrix("Matrix A", 6, 4);
+        matrixA.getRandElements(-10, 10);
         System.out.println(matrixA);
 
         Matrix matrixB = new Matrix("Matrix B", 3, 2);
         System.out.println(matrixB);
-        
-         System.out.println(matrixA.toString();
+
+        System.out.println(matrixA.toString());
     }
-    
-    
+
 }
