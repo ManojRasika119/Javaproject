@@ -39,6 +39,8 @@ public class Matrix {
         }
         }
     }
+  
+
         
 
     //methods
@@ -58,10 +60,31 @@ public class Matrix {
         return text;
     }   
     
+        
+    
     Public int[][] compareMatrixs(Matrix otherMatrix){
         
-
+ int A[][] = new int [toString()];
+ int B[][] =new int [toString()];
+ 
+ int rowA,rowB, colA,colB;
+ rowA =A.length;
         
+    }
+    
+    Public int getMinOfRowsColumns(){
+        return Math.min(elements.length,elements[0].length);
+        
+    }
+      // define diagonal
+    Public int[] getprincipleDiagonal(){
+        int minRowsColumns = getMinOfRowsColumns();
+        int diagonal[]= new int[minRowsColumns];
+        
+        for (int i=0; i< minRowsColumns; i++) {
+        diagonal[i] =elements[1][i];
+    }
+        return diagonal;
     }
 
 //    private void Array(int[][] twoDArrayA) {
