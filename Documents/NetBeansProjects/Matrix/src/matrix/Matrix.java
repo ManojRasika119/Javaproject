@@ -87,7 +87,7 @@ public class Matrix {
 
         return result;
     }
-
+/*
     public boolean compareMatrixs(Matrix otherMatrix) { // are the same or not
         boolean result = true;
 
@@ -103,7 +103,7 @@ public class Matrix {
 
         return result;
     }
-
+*/
     public int getMinOfRowsColumns() {
         return Math.min(elements.length, elements[0].length);
 
@@ -115,11 +115,24 @@ public class Matrix {
         int diagonal[] = new int[minRowsColumns];
 
         for (int i = 0; i < minRowsColumns; i++) {
-            diagonal[i] = elements[1][i];
+            diagonal[i] = elements[0][i];
         }
+       
         return diagonal;
+        
     }
-
+    
+    public static void swap(Matrix a, Matrix b) {
+    int[][] tmp = a.elements;
+    a.elements = b.elements;
+    b.elements = tmp;
+}
+    public boolean condition(){
+        boolean result = true;
+        
+        if(haveTheSameDimensions(Matrix a, Matrix b);
+    }
+            
 //    private void Array(int[][] twoDArrayA) {
 //
 //        //creating random elements for A and B Matrixs

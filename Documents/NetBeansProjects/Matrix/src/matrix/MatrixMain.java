@@ -17,10 +17,11 @@ public class MatrixMain {
         matrixA.getRandElements(-10, 10);
         System.out.println(matrixA);
 
-        Matrix matrixB = new Matrix("Matrix B", 3, 2);
+        Matrix matrixB = new Matrix("Matrix B", 6, 4);
+        matrixB.getRandElements(-10, 10);
         System.out.println(matrixB);
 
-        System.out.println(matrixA.toString());
+        
     }
 
 }
