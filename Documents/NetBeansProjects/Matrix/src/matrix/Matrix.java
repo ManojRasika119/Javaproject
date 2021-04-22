@@ -110,7 +110,7 @@ public class Matrix {
     }
     // define diagonal
 
-    public int[] getprincipleDiagonal() {
+    public int[] getPrincipleDiagonal() {
         int minRowsColumns = getMinOfRowsColumns();
         int diagonal[] = new int[minRowsColumns];
 
@@ -121,22 +121,36 @@ public class Matrix {
         return diagonal;
 
     }
-
-    public static void swap(Matrix a, Matrix b) {
+    
+ 
+//swap elements of Matrix A and Matrix B
+    public static void getSwap(Matrix a, Matrix b) {
         int[][] tmp = a.elements;
         a.elements = b.elements;
         b.elements = tmp;
     }
-
-    public boolean condition(Matrix anotherMatrix) {
+    
+    //check condition
+    public boolean getCondition(Matrix anotherMatrix) {
         boolean result = true;
 
         if (haveTheSameDimensions(anotherMatrix)) {
-
-        }
-
+                    }
         return result;
     }
+    
+    //select elements below diagonal of the matrix
+    public int[] getElementsBelowDiagonal(){
+           int elementsBelowDiagonal = getRandElements();
+           int belowElements[] = new int[elementsBelowDiagonal] ;
+           for (int i = 0; i < elementsBelowDiagonal; i++) {
+                  for (int j=i ; j>=0 ; j--) {
+                                       }
+            }
+           return belowElements;
+         
+}
+}
 
 //    private void Array(int[][] twoDArrayA) {
 //
@@ -165,4 +179,4 @@ public class Matrix {
 //            System.out.print(twoDArrayB[r][s] + "  ");
 //        }
 //    }
-}
+        
