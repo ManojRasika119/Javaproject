@@ -4,6 +4,7 @@ Left diagonal with each other
  */
 package matrix;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -35,7 +36,6 @@ public class Matrix {
         for (int i = 0; i < elements.length; i++) {
             for (int j = 0; j < elements[i].length; j++) {
                 elements[i][j] = getRandom(a, b);
-
             }
         }
     }
@@ -121,35 +121,48 @@ public class Matrix {
         return diagonal;
 
     }
-    
- 
+
 //swap elements of Matrix A and Matrix B
-    public static void getSwap(Matrix a, Matrix b) {
+    public static void swapElements(Matrix a, Matrix b) {
         int[][] tmp = a.elements;
         a.elements = b.elements;
         b.elements = tmp;
     }
-    
+
     //check condition
-    public boolean getCondition(Matrix anotherMatrix) {
+    private boolean getCondition(Matrix anotherMatrix) {
         boolean result = true;
 
         if (haveTheSameDimensions(anotherMatrix)) {
-                    }
+        }
         return result;
     }
-    
+
     //select elements below diagonal of the matrix
-    public int[] getElementsBelowDiagonal(){
-           int elementsBelowDiagonal = getRandElements();
-           int belowElements[] = new [elementsBelowDiagonal] ;
-           for (int i = 0; i < elementsBelowDiagonal; i++) {
-                  for (int j=i-1 ; j>=0 ; j--) {
-                                       }
+    public int[] getElementsBelowPrincipleDiagonal() {
+        ArrayList<Integer> elementsBelowPrincipleDig = new ArrayList<>();
+
+        for (int i = 1; i < elements.length; i++) { //OK
+            for (int j = 0; j < elements[0].length; j++) {
+                if (i > j) {
+                    elementsBelowPrincipleDig.add(elements[i][j]);
+                }
             }
-           return belowElements;
-         
-}
+        }
+        
+        return convertArrayListToArray(elementsBelowPrincipleDig);
+    }
+    
+    private static int[] convertArrayListToArray(ArrayList<Integer> al) {
+        int[] array = new int[al.size()];
+        
+        for (int i = 0; i < array.length; i++) {
+            array[i] = al.get(i);
+        }
+        
+        return array;
+    }
+    
 }
 
 //    private void Array(int[][] twoDArrayA) {
@@ -179,4 +192,4 @@ public class Matrix {
 //            System.out.print(twoDArrayB[r][s] + "  ");
 //        }
 //    }
-        
+
