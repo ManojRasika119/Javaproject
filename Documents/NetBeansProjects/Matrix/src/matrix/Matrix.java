@@ -142,9 +142,9 @@ public class Matrix {
     //select elements below diagonal of the matrix
     public int[] getElementsBelowDiagonal(){
            int elementsBelowDiagonal = getRandElements();
-           int belowElements[] = new int[elementsBelowDiagonal] ;
+           int belowElements[] = new [elementsBelowDiagonal] ;
            for (int i = 0; i < elementsBelowDiagonal; i++) {
-                  for (int j=i ; j>=0 ; j--) {
+                  for (int j=i-1 ; j>=0 ; j--) {
                                        }
             }
            return belowElements;
