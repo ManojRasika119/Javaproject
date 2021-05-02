@@ -5,8 +5,10 @@ Left diagonal with each other
 package matrix;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
+import java.io.File;  
+import java.io.IOException;
+import java.io.FileWriter;
 
 /**
  *
@@ -123,11 +125,23 @@ public class Matrix {
     }
 
 //swap elements of Matrix A and Matrix B
-    public static void swapElements(Matrix a, Matrix b) {
+    public int[][] swapElements(Matrix a , Matrix b) {
+       
+        if (haveTheSameDimensions(a)){
+            a.getElementsBelowPrincipleDiagonal();
+            b.getElementsBelowPrincipleDiagonal();
+            
         int[][] tmp = a.elements;
         a.elements = b.elements;
         b.elements = tmp;
-    }
+        
+        return tmp;
+        }
+        return ;
+    }   
+    
+    
+    
 
     //check condition
     private boolean getCondition(Matrix anotherMatrix) {
@@ -163,33 +177,36 @@ public class Matrix {
         return array;
     }
     
+    public void createFile(){
+        
+        try {
+            File myObj = new File("filename.txt");
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+            } else {
+                System.out.println("File already exists.");
+            } 
+        } 
+        catch (IOException ex) {
+            System.out.println("An error occurred.");
+            ex.printStackTrace();
+        }
+
+}
+    public void writeToFile(MatrixMain matrix){
+        try {
+              FileWriter myWriter = new FileWriter("filename.txt");
+              myWriter.write(matrixA);
+              myWriter.write(int[] matrixa);
+              myWriter.close();
+              System.out.println("Successfully wrote to the file.");
+        }   
+        catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+    }
+    }
+    
 }
 
-//    private void Array(int[][] twoDArrayA) {
-//
-//        //creating random elements for A and B Matrixs
-//        Random elimentA = new Random();
-//
-//        int[][] twoDArrayA
-//                = //this is not attribute of object! this is local variable
-//                // of the method
-//       
-//        for (int i = 0; -10 < i && i < 10; i = elimentA.nextInt()) {
-//            for (int j = 0; -10 < j && j < 10; j = elimentA.nextInt()) {
-//
-//            }
-//            System.out.print(twoDArrayA[i][j] + "  ");
-//        }
-//
-//        Random elimentB = new Random();
-//
-//        int[][] twoDArrayB =
-//       
-//        for (int r = 0; -10 < r && r < 10; r = elimentB.nextInt()) {
-//            for (int s = 0; -10 < s && s < 10; s = elimentB.nextInt()) {
-//
-//            }
-//            System.out.print(twoDArrayB[r][s] + "  ");
-//        }
-//    }
 

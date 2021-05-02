@@ -19,14 +19,23 @@ public class MatrixMain {
         matrixA.getRandElements(-10, 10);
         System.out.println(matrixA);
         
-        int[] array = matrixA.getElementsBelowPrincipleDiagonal();
-        System.out.println(Arrays.toString(array));
-
-//        Matrix matrixB = new Matrix("Matrix B", 6, 4);
-//        matrixB.getRandElements(-10, 10);
-//        System.out.println(matrixB);
-
+        int[] arrayA = matrixA.getElementsBelowPrincipleDiagonal();
+        System.out.println(Arrays.toString(arrayA));
         
+        
+
+        Matrix matrixB = new Matrix("Matrix B", 2, 8);
+        matrixB.getRandElements(-10, 10);
+        System.out.println(matrixB);
+
+        int[] arrayB = matrixB.getElementsBelowPrincipleDiagonal();
+        System.out.println(Arrays.toString(arrayB));
+        
+        Matrix matrixa = matrixA.swapElements(matrixA, matrixB);
+        System.out.println(matrixa);
+        
+        Matrix matrixb = matrixB.swapElements(matrixB, matrixA);
+        System.out.println(matrixb);
     }
 
 }
