@@ -15,7 +15,7 @@ public class MatrixMain {
 
     public static void main(String args[]) {
 
-        Matrix matrixA = new Matrix("Matrix A", 8, 2);
+        Matrix matrixA = new Matrix("Matrix A", 4, 4);
         matrixA.getRandElements(-10, 10);
         //System.out.println(matrixA);
         FileOperations.readFromFile(matrixA, "matrixA-before.txt");
@@ -25,7 +25,7 @@ public class MatrixMain {
         System.out.println(Arrays.toString(arrayA));
         FileOperations.writeToFile(matrixA, "matrixA-before.txt");
 
-        Matrix matrixB = new Matrix("Matrix B", 8, 2);
+        Matrix matrixB = new Matrix("Matrix B", 4, 5);
         matrixB.getRandElements(-10, 10);
         //System.out.println(matrixB);
         FileOperations.readFromFile(matrixB, "matrixB-before.txt");
@@ -51,10 +51,12 @@ public class MatrixMain {
         System.out.println("Matrix A after swap:");
         System.out.println(matrixA);
         FileOperations.writeToFile(matrixA, "matrixA-after.txt");
+        FileOperations.readFromFile(matrixA, "matrixA-after.txt");
 
         System.out.println("Matrix B after swap:");
         System.out.println(matrixB);
         FileOperations.writeToFile(matrixB, "matrixB-after.txt");
+        FileOperations.readFromFile(matrixB, "matrixB-after.txt");
     }
 
 }
