@@ -19,6 +19,7 @@ public class Matrix {
     // instance variables - attributes of objects
     private String name;
     private int[][] elements;
+    private int length;
 
     // constructors
     Matrix(String name, int numberOfRows, int numberOfColumns) { // this is constructor
@@ -89,23 +90,6 @@ public class Matrix {
         return result;
     }
 
-    /*
-    public boolean compareMatrixs(Matrix otherMatrix) { // are the same or not
-        boolean result = true;
-
-        for (int i = 0; i < elements.length; i++) {
-            for (int j = 0; j < elements[0].length; j++) {
-                if (elements[i][j] != otherMatrix.elements[i][j]) {
-                    result = false;
-                }
-
-            }
-
-        }
-
-        return result;
-    }
-     */
     public int getMinOfRowsColumns() {
         return Math.min(elements.length, elements[0].length);
 
@@ -121,41 +105,55 @@ public class Matrix {
         }
 
         return diagonal;
+    }
+
+    Matrix(Matrix m, String name, int rows, int columns) {
 
     }
 
-//swap elements of Matrix A and Matrix B
+    public void copyOldMatrix() {
+        int[][] old;
+        int[][] current;
+
+        for (int i = 0; i < old.length; i++) {
+            for (int j = 0; j < old[i].length; j++) {
+                old[i][j] = current[i][j];
+            }
+        }
+        //swap elements of Matrix A and Matrix B        //swap elements of Matrix A and Matrix B
+
     public Matrix[] swapElements(Matrix b) {
         Matrix[] matrixCD = null;
-        
+
         if (haveTheSameDimensions(b)) {
             //create new objects - copy of A nad B matrices
             // run the algorithm below in new objects and return the new objects
             // of Matrix type
-            Matrix matrixC = new Matrix("matrix C", 0, 0);
-            Matrix matrixD = new Matrix("matrix D", 0, 0);
-            
-            
-            matrixCD = new Matrix[2];
-            matrixCD[0] = matrixC;
-            matrixCD[1] = matrixD;
-            
-            for (int i = 1; i < elements.length; i++) { //OK
-                for (int j = 0; j < elements[0].length; j++) {
-                    if (i > j) {
-                        int tmp = elements[i][j];
-                        elements[i][j] = b.elements[i][j];
-                        b.elements[i][j] = tmp;
-                    }
+
+        }
+        Matrix matrixC = new Matrix(this, "matrix C", elements.length, elements[0].length);
+        Matrix matrixD = new Matrix(b, "matrix D", elements.length, elements[0].length);
+
+        matrixCD = new Matrix[2];
+        matrixCD[0] = matrixC;
+        matrixCD[1] = matrixD;
+
+        for (int i = 1; i < elements.length; i++) { //OK
+            for (int j = 0; j < elements[0].length; j++) {
+                if (i > j) {
+                    int tmp = elements[i][j];
+                    elements[i][j] = b.elements[i][j];
+                    b.elements[i][j] = tmp;
                 }
             }
         }
-
-        return matrixCD;
     }
 
-    //check condition
-    private boolean getCondition(Matrix anotherMatrix) {
+    return matrixCD ;
+}
+
+//check condition
+private boolean getCondition(Matrix anotherMatrix) {
         boolean result = true;
 
         if (haveTheSameDimensions(anotherMatrix)) {
