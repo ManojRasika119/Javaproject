@@ -127,6 +127,7 @@ public class Matrix {
 //swap elements of Matrix A and Matrix B
     public int[][] swapElements(Matrix a , Matrix b) {
        
+
         if (haveTheSameDimensions(a)){
             a.getElementsBelowPrincipleDiagonal();
             b.getElementsBelowPrincipleDiagonal();
@@ -137,6 +138,7 @@ public class Matrix {
         
         return tmp;
         }
+      
         return ;
     }   
     
@@ -193,11 +195,12 @@ public class Matrix {
         }
 
 }
+    
+    
     public void writeToFile(MatrixMain matrix){
         try {
               FileWriter myWriter = new FileWriter("filename.txt");
-              myWriter.write(matrixA);
-              myWriter.write(int[] matrixa);
+              myWriter.write(matrix matrixA);
               myWriter.close();
               System.out.println("Successfully wrote to the file.");
         }   

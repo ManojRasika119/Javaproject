@@ -31,8 +31,8 @@ public class MatrixMain {
         int[] arrayB = matrixB.getElementsBelowPrincipleDiagonal();
         System.out.println(Arrays.toString(arrayB));
         
-        Matrix matrixa = matrixA.swapElements(matrixA, matrixB);
-        System.out.println(matrixa);
+       matrixA = matrixA.swapElements(matrixA, matrixB);
+        System.out.println(matrixA);
         
         Matrix matrixb = matrixB.swapElements(matrixB, matrixA);
         System.out.println(matrixb);
