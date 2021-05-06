@@ -17,18 +17,22 @@ public class MatrixMain {
 
         Matrix matrixA = new Matrix("Matrix A", 8, 2);
         matrixA.getRandElements(-10, 10);
-        System.out.println(matrixA);
-
+        //System.out.println(matrixA);
+        FileOperations.readFromFile(matrixA, "matrixA-before.txt");
+        
+        
         int[] arrayA = matrixA.getElementsBelowPrincipleDiagonal();
         System.out.println(Arrays.toString(arrayA));
         FileOperations.writeToFile(matrixA, "matrixA-before.txt");
 
         Matrix matrixB = new Matrix("Matrix B", 8, 2);
         matrixB.getRandElements(-10, 10);
-        System.out.println(matrixB);
+        //System.out.println(matrixB);
+        FileOperations.readFromFile(matrixB, "matrixB-before.txt");
 
         int[] arrayB = matrixB.getElementsBelowPrincipleDiagonal();
         System.out.println(Arrays.toString(arrayB));
+        FileOperations.writeToFile(matrixB, "matrixB-before.txt");
 
         Matrix[] matrixCD = matrixA.swapElements(matrixB);
         if (matrixCD != null) {
@@ -43,12 +47,14 @@ public class MatrixMain {
         } else {
             System.out.println("Dimension of matrix A anb B are not the same");
         }
-        
+
         System.out.println("Matrix A after swap:");
         System.out.println(matrixA);
-        
+        FileOperations.writeToFile(matrixA, "matrixA-after.txt");
+
         System.out.println("Matrix B after swap:");
         System.out.println(matrixB);
+        FileOperations.writeToFile(matrixB, "matrixB-after.txt");
     }
 
 }
