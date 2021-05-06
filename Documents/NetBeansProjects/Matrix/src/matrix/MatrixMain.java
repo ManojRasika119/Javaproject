@@ -29,17 +29,20 @@ public class MatrixMain {
         int[] arrayB = matrixB.getElementsBelowPrincipleDiagonal();
         System.out.println(Arrays.toString(arrayB));
 
-        Matrix[] matrixCD = matrixA.swapElements(matrixB);
+        Matrix matrixC = matrixA;
+        Matrix matrixD = matrixB;
+
+        Matrix[] matrixCD = matrixC.swapElements(matrixD);
         if (matrixCD != null) {
-            Matrix matrixC = matrixCD[0];
-            Matrix matrixD = matrixCD[1];
+            matrixC = matrixCD[0];
+            matrixD = matrixCD[1];
         }
 
         System.out.println("Matrix A after swap:");
-        System.out.println(matrixA);
+        System.out.println(matrixC);
 
         System.out.println("Matrix B after swap:");
-        System.out.println(matrixB);
+        System.out.println(matrixD);
 
 //        Matrix matrixb = matrixB.swapElements(matrixB, matrixA);
 //        System.out.println(matrixb);
