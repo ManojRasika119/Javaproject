@@ -144,13 +144,9 @@ public class Matrix {
         for (int i = 1; i < elements.length; i++) { //OK
             for (int j = 0; j < elements[0].length; j++) {
                 if (i > j) {
-                    
-                    
                     int tmp = matrixC.elements[i][j]; //swap between C and D
                     matrixC.elements[i][j] = matrixD.elements[i][j];
                     matrixD.elements[i][j] = tmp;
-                    
-                    
                 }
             }
         }
@@ -207,16 +203,6 @@ public class Matrix {
 
     }
 
-    public void writeToFile(MatrixMain matrix) {
-        try {
-            FileWriter myWriter = new FileWriter("filename.txt");
-            myWriter.write(matrix.toString());
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-    }
+    
 
 }

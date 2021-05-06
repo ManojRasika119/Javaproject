@@ -21,6 +21,7 @@ public class MatrixMain {
 
         int[] arrayA = matrixA.getElementsBelowPrincipleDiagonal();
         System.out.println(Arrays.toString(arrayA));
+        FileOperations.writeToFile(matrixA, "matrixA-before.txt");
 
         Matrix matrixB = new Matrix("Matrix B", 8, 2);
         matrixB.getRandElements(-10, 10);
@@ -29,23 +30,25 @@ public class MatrixMain {
         int[] arrayB = matrixB.getElementsBelowPrincipleDiagonal();
         System.out.println(Arrays.toString(arrayB));
 
-        Matrix matrixC = matrixA;
-        Matrix matrixD = matrixB;
-
-        Matrix[] matrixCD = matrixC.swapElements(matrixD);
+        Matrix[] matrixCD = matrixA.swapElements(matrixB);
         if (matrixCD != null) {
-            matrixC = matrixCD[0];
-            matrixD = matrixCD[1];
+            Matrix matrixC = matrixCD[0];
+            Matrix matrixD = matrixCD[1];
+
+            System.out.println("Matrix C after swap:");
+            System.out.println(matrixC);
+
+            System.out.println("Matrix D after swap:");
+            System.out.println(matrixD);
+        } else {
+            System.out.println("Dimension of matrix A anb B are not the same");
         }
-
+        
         System.out.println("Matrix A after swap:");
-        System.out.println(matrixC);
-
+        System.out.println(matrixA);
+        
         System.out.println("Matrix B after swap:");
-        System.out.println(matrixD);
-
-//        Matrix matrixb = matrixB.swapElements(matrixB, matrixA);
-//        System.out.println(matrixb);
+        System.out.println(matrixB);
     }
 
 }
