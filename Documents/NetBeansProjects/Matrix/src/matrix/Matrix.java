@@ -6,7 +6,7 @@ package matrix;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.io.File;  
+import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
 
@@ -125,25 +125,34 @@ public class Matrix {
     }
 
 //swap elements of Matrix A and Matrix B
-    public int[][] swapElements(Matrix a , Matrix b) {
-       
-
-        if (haveTheSameDimensions(a)){
-            a.getElementsBelowPrincipleDiagonal();
-            b.getElementsBelowPrincipleDiagonal();
-            
-        int[][] tmp = a.elements;
-        a.elements = b.elements;
-        b.elements = tmp;
+    public Matrix[] swapElements(Matrix b) {
+        Matrix[] matrixCD = null;
         
-        return tmp;
+        if (haveTheSameDimensions(b)) {
+            //create new objects - copy of A nad B matrices
+            // run the algorithm below in new objects and return the new objects
+            // of Matrix type
+            Matrix matrixC = new Matrix("matrix C", 0, 0);
+            Matrix matrixD = new Matrix("matrix D", 0, 0);
+            
+            
+            matrixCD = new Matrix[2];
+            matrixCD[0] = matrixC;
+            matrixCD[1] = matrixD;
+            
+            for (int i = 1; i < elements.length; i++) { //OK
+                for (int j = 0; j < elements[0].length; j++) {
+                    if (i > j) {
+                        int tmp = elements[i][j];
+                        elements[i][j] = b.elements[i][j];
+                        b.elements[i][j] = tmp;
+                    }
+                }
+            }
         }
-      
-        return ;
-    }   
-    
-    
-    
+
+        return matrixCD;
+    }
 
     //check condition
     private boolean getCondition(Matrix anotherMatrix) {
@@ -165,51 +174,46 @@ public class Matrix {
                 }
             }
         }
-        
+
         return convertArrayListToArray(elementsBelowPrincipleDig);
     }
-    
+
     private static int[] convertArrayListToArray(ArrayList<Integer> al) {
         int[] array = new int[al.size()];
-        
+
         for (int i = 0; i < array.length; i++) {
             array[i] = al.get(i);
         }
-        
+
         return array;
     }
-    
-    public void createFile(){
-        
+
+    public void createFile() {
+
         try {
             File myObj = new File("filename.txt");
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
             } else {
                 System.out.println("File already exists.");
-            } 
-        } 
-        catch (IOException ex) {
+            }
+        } catch (IOException ex) {
             System.out.println("An error occurred.");
             ex.printStackTrace();
         }
 
-}
-    
-    
-    public void writeToFile(MatrixMain matrix){
+    }
+
+    public void writeToFile(MatrixMain matrix) {
         try {
-              FileWriter myWriter = new FileWriter("filename.txt");
-              myWriter.write(matrix matrixA);
-              myWriter.close();
-              System.out.println("Successfully wrote to the file.");
-        }   
-        catch (IOException e) {
-                System.out.println("An error occurred.");
-                e.printStackTrace();
+            FileWriter myWriter = new FileWriter("filename.txt");
+            myWriter.write(matrix.toString());
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
-    }
-    
+
 }
-
-
