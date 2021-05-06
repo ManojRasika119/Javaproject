@@ -107,21 +107,24 @@ public class Matrix {
         return diagonal;
     }
 
-    Matrix(Matrix m, String name, int rows, int columns) {
+    /**
+     * this constructor creates copy of the original matrix in parameter
+     *
+     * @param m - original matrix
+     * @param name
+     */
+    Matrix(Matrix m, String name) {
+        elements = new int[m.elements.length][m.elements[0].length];
+        this.name = name;
 
-    }
-
-    public void copyOldMatrix() {
-        int[][] old;
-        int[][] current;
-
-        for (int i = 0; i < old.length; i++) {
-            for (int j = 0; j < old[i].length; j++) {
-                old[i][j] = current[i][j];
+        for (int i = 0; i < elements.length; i++) {
+            for (int j = 0; j < elements[0].length; j++) {
+                this.elements[i][j] = m.elements[i][j];
             }
         }
-        //swap elements of Matrix A and Matrix B        //swap elements of Matrix A and Matrix B
+    }
 
+    //swap elements of Matrix A and Matrix B        //swap elements of Matrix A and Matrix B
     public Matrix[] swapElements(Matrix b) {
         Matrix[] matrixCD = null;
 
@@ -131,8 +134,8 @@ public class Matrix {
             // of Matrix type
 
         }
-        Matrix matrixC = new Matrix(this, "matrix C", elements.length, elements[0].length);
-        Matrix matrixD = new Matrix(b, "matrix D", elements.length, elements[0].length);
+        Matrix matrixC = new Matrix(this, "matrix C");
+        Matrix matrixD = new Matrix(b, "matrix D");
 
         matrixCD = new Matrix[2];
         matrixCD[0] = matrixC;
@@ -141,19 +144,17 @@ public class Matrix {
         for (int i = 1; i < elements.length; i++) { //OK
             for (int j = 0; j < elements[0].length; j++) {
                 if (i > j) {
-                    int tmp = elements[i][j];
+                    int tmp = elements[i][j]; //swap between C and D
                     elements[i][j] = b.elements[i][j];
                     b.elements[i][j] = tmp;
                 }
             }
         }
+        return matrixCD;
     }
 
-    return matrixCD ;
-}
-
-//check condition
-private boolean getCondition(Matrix anotherMatrix) {
+    //check condition
+    private boolean getCondition(Matrix anotherMatrix) {
         boolean result = true;
 
         if (haveTheSameDimensions(anotherMatrix)) {
