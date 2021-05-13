@@ -22,7 +22,7 @@ public class Matrix {
     private int length;
 
     // constructors
-    Matrix(String name, int numberOfRows, int numberOfColumns) { // this is constructor
+    public Matrix(String name, int numberOfRows, int numberOfColumns) { // this is constructor
         this.name = name;
         elements = new int[numberOfRows][numberOfColumns];
     }
@@ -35,7 +35,7 @@ public class Matrix {
         return a + rand.nextInt(b - a + 1);
     }
 
-    void getRandElements(int a, int b) {
+    public void getRandElements(int a, int b) {
         for (int i = 0; i < elements.length; i++) {
             for (int j = 0; j < elements[i].length; j++) {
                 elements[i][j] = getRandom(a, b);

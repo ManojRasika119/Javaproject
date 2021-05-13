@@ -14,32 +14,40 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
+import matrix.Matrix;
 
 /**
  *
  * @author Medhavi
  */
 public class MatrixGuiMain extends Application {
-    
+
     private TextArea textArea;
-    
+
     @Override
     public void start(Stage primaryStage) {
+        Matrix matrixA = new Matrix("Matrix A", 4, 4);
+        matrixA.getRandElements(-10, 10);
+        
+        
         
         primaryStage.setTitle("Matrix Swapping");
-        BorderPane root =new BorderPane();
-       
+        BorderPane root = new BorderPane();
+
         textArea = new TextArea();
         root.setCenter(textArea);
         textArea.setEditable(false);
-        textArea.appendText("Matrix A :\n"); 
-        
+//        textArea.appendText("Matrix A :\n");
+        textArea.appendText(matrixA.toString());
+
         String text = textArea.getText();
-        System.out.println(text);
-              
         
+
         Scene scene = new Scene(root, 500, 550);
-        scene.getStylesheets().add(getClass().getResource("MatrixMain.java").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("MatrixMain.java").toExternalForm());
+        
+        
+        
         
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -51,5 +59,5 @@ public class MatrixGuiMain extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
