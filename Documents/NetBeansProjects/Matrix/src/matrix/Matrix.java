@@ -113,7 +113,7 @@ public class Matrix {
      * @param m - original matrix
      * @param name
      */
-    Matrix(Matrix m, String name) {
+    public Matrix(Matrix m, String name) {
         elements = new int[m.elements.length][m.elements[0].length];
         this.name = name;
 
@@ -125,7 +125,7 @@ public class Matrix {
     }
 
     //swap elements of Matrix A and Matrix B        //swap elements of Matrix A and Matrix B
-    public Matrix[] swapElements(Matrix b) {
+    public  Matrix[] swapElements(Matrix b) {
         Matrix[] matrixCD = null;
 
         if (haveTheSameDimensions(b)) {
